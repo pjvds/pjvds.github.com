@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://pjvds.github.com/atom.xml" rel="self"/>
   <link href="http://pjvds.github.com/"/>
-  <updated>2012-07-14T13:03:58+02:00</updated>
+  <updated>2012-07-14T16:08:04+02:00</updated>
   <id>http://pjvds.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -70,6 +70,44 @@
 <ul>
 <li><a href="https://github.com/pjvds/trivia/commit/c9a4fdabcb9e656276310193c28478a5aa97dc82">Removes a bunch of magic numbers/string and renamed methods to reveal intention</a></li>
 <li><a href="https://github.com/pjvds/trivia/commit/2f0d31e42d10d6f044601a5e846247a2f7e72e75">Improves code by removing magic&#8217;s</a>.</li>
+</ul>
+
+
+<h2>Iteratie 3</h2>
+
+<p>Het doel van deze iteratie is het toevoegen van tests. We gaan een vangnet creëren. Deze hebben we later hard nodig als we gaan refactoren.</p>
+
+<p>Mijn plan van aanpak was het schrijven van functionele integratie tests te gaan schrijven. De functionaliteit zou ik halen door de bestaande code te analyseren. Ik vond de volgende functies:</p>
+
+<ul>
+<li>Spelers toevoegen aan de game (<em>shouldAddPlayers</em>).</li>
+<li>Er zijn minimaal twee spelers nodig om te spelen (<em>needsTwoPlayersToPlay</em>).</li>
+<li>Na het geven van een antwoord is de volgende speler aan de beurt (<em>advancesPlayerAfterAnswer</em>).</li>
+<li>Een verkeerd antwoord verplaatst de huidige spelen naar de penalty box (<em>toPenaltyBoxAfterWrongAnswer</em>).</li>
+<li>Een goed antwoord verplaatst de speler niet naar de penalty box (<em>notToPenaltyBoxAfterCorrectAnswer</em>).</li>
+<li>Een speler in de penalty box verlaat deze weer bij het gooien van een oneven getal (<em>outOfPenaltyBoxAfterOddRoll</em>).</li>
+<li>Een speler in de penalty box blijft zitten bij het gooien van een even getal (<em>notOutOfPenaltyBoxAfterEvenRoll</em>).</li>
+<li>Een goed antwoord wordt beloond met een coin (<em>getsCoinAfterCorrectAnswer</em>).</li>
+<li>Een fout antwoord wordt niet beloond met een coin (<em>doesNotGetCoinAfterWrongAnswer</em>).</li>
+<li>Na zes goede antwoorden win je de game (<em>winAfterSixCorrectAnswers</em>).</li>
+</ul>
+
+
+<p>Voor deze tests heb ik NUnit gebruikt. Om de state te testen heb ik een aantal interne variabele toegankelijk gemaakt. Een nadeel hiervan is dat de tests nu afhankelijk zijn van implementatie details. Maar omdat ik nog geen code echt wou wijzigen was dit de enige optie.</p>
+
+<p>Het resultaat van de iteratie is iets van een vangnet. Deze vormt de basis voor onze refactoring. De testen tonen ook aan hoe slecht de huidige code er aan toe is. Vijf van tien tests falen!</p>
+
+<h3>Commits</h3>
+
+<ul>
+<li><a href="https://github.com/pjvds/trivia/commit/d95733b0d95fac480e6fe75f664da7ea0ea4350b">Adds tests that cover most game scenario&#8217;s</a></li>
+</ul>
+
+
+<h2>Andere bronnen</h2>
+
+<ul>
+<li>Het book <a href="amzn.com/0131177052">working effective with legacy code</a> van Micheal Feathers.</li>
 </ul>
 
 ]]></content>
