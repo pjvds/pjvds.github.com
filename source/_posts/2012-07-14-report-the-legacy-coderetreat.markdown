@@ -49,3 +49,32 @@ Het doel van deze iteratie is het onthullen van de intentie van de code. Refacto
 
 * [Removes a bunch of magic numbers/string and renamed methods to reveal intention](https://github.com/pjvds/trivia/commit/c9a4fdabcb9e656276310193c28478a5aa97dc82)
 * [Improves code by removing magic's](https://github.com/pjvds/trivia/commit/2f0d31e42d10d6f044601a5e846247a2f7e72e75).
+
+## Iteratie 3
+
+Het doel van deze iteratie is het toevoegen van tests. We gaan een vangnet creëren. Deze hebben we later hard nodig als we gaan refactoren.
+
+Mijn plan van aanpak was het schrijven van functionele integratie tests te gaan schrijven. De functionaliteit zou ik halen door de bestaande code te analyseren. Ik vond de volgende functies:
+
+* Spelers toevoegen aan de game (_shouldAddPlayers_).
+* Er zijn minimaal twee spelers nodig om te spelen (_needsTwoPlayersToPlay_).
+* Na het geven van een antwoord is de volgende speler aan de beurt (_advancesPlayerAfterAnswer_).
+* Een verkeerd antwoord verplaatst de huidige spelen naar de penalty box (_toPenaltyBoxAfterWrongAnswer_).
+* Een goed antwoord verplaatst de speler niet naar de penalty box (_notToPenaltyBoxAfterCorrectAnswer_).
+* Een speler in de penalty box verlaat deze weer bij het gooien van een oneven getal (_outOfPenaltyBoxAfterOddRoll_).
+* Een speler in de penalty box blijft zitten bij het gooien van een even getal (_notOutOfPenaltyBoxAfterEvenRoll_).
+* Een goed antwoord wordt beloond met een coin (_getsCoinAfterCorrectAnswer_).
+* Een fout antwoord wordt niet beloond met een coin (_doesNotGetCoinAfterWrongAnswer_).
+* Na zes goede antwoorden win je de game (_winAfterSixCorrectAnswers_).
+
+Voor deze tests heb ik NUnit gebruikt. Om de state te testen heb ik een aantal interne variabele toegankelijk gemaakt. Een nadeel hiervan is dat de tests nu afhankelijk zijn van implementatie details. Maar omdat ik nog geen code echt wou wijzigen was dit de enige optie.
+
+Het resultaat van de iteratie is iets van een vangnet. Deze vormt de basis voor onze refactoring. De testen tonen ook aan hoe slecht de huidige code er aan toe is. Vijf van tien tests falen!
+
+### Commits
+
+* [Adds tests that cover most game scenario's](https://github.com/pjvds/trivia/commit/d95733b0d95fac480e6fe75f664da7ea0ea4350b)
+
+## Andere bronnen
+
+* Het book [working effective with legacy code](amzn.com/0131177052) van Micheal Feathers.
