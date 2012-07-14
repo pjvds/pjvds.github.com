@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://pjvds.github.com/atom.xml" rel="self"/>
   <link href="http://pjvds.github.com/"/>
-  <updated>2012-07-13T17:33:12+02:00</updated>
+  <updated>2012-07-14T11:58:56+02:00</updated>
   <id>http://pjvds.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Report: The Legacy Coderetreat]]></title>
+    <link href="http://pjvds.github.com/blog/2012/07/14/report-the-legacy-coderetreat/"/>
+    <updated>2012-07-14T10:02:00+02:00</updated>
+    <id>http://pjvds.github.com/blog/2012/07/14/report-the-legacy-coderetreat</id>
+    <content type="html"><![CDATA[<p>Iedere software ontwikkelaar heeft er mee te maken. Sommige vinden het leuk, maar vele hebben er een hekel aan. Je kunt het erven van een ander, of tegenkomen van jezelf. Soms is het jaren oud zijn, of vorige week geschreven. Het kan ontwikkeld zijn in Cobol, of in de laatste versie van een moderne taal. Een ding is zeker, er wordt elke dag een hoop van geschreven. Legacy code, een fenomeen dat we maar al te goed kennen. Toch weten we er maar weinig van. Wat is het eigenlijk precies? Hoe kun je er het beste mee omgaan?</p>
+
+<p>Op zaterdag 23 juni kwamen we bij elkaar in het hoofdkantoor van <a href="http://www.finalist.nl/">Finalist</a> om antwoorden te vinden op deze vragen. Onder leiding van <a href="https://twitter.com/talboomerik">Erik Talboom</a> en <a href="https://twitter.com/frederikdelbr">Frederik Delbroek</a> zijn we aan de slag gegaan om <a href="https://github.com/jbrains/trivia">Trivia</a> aan te gaan pakken. Een variant van Triviant dat duidelijk de stempel legacy code verdient. Het plan was om in vier iteraties in pairs de code te leren begrijpen en te verbeteren.</p>
+
+<p>Ik koos voor de C# variant op Mono met MonoDevelop als IDE. Andere kozen voor Java, PHP, Javascript, Ruby en Scala.</p>
+
+<h2>Iteratie 1</h2>
+
+<p>Het doel van deze iteratie was het verkennen van de solution en code. We krijgen als opdracht mee om alleen te gaan verkennen. We mogen geen wijzigingen aanbrengen, anders dan het uitvoerbaar krijgen van de code.</p>
+
+<p>Na een fork en clone van de git repository en het openen van de solution viel gelijk op dat de code niet bouwt door het missen van een startup object. Ik verwijder de lege <code>Program</code> klasse deze en stel de <code>GameRunner</code> klasse in als startup object in. De solution bouwt en is zelfs executabel. Ik gebruik de overige tijd om een indruk te krijgen van de code. Het volgende valt mij op:</p>
+
+<ul>
+<li>Code werkt op Mono.</li>
+<li>Na korte fix is de code uitvoerbaar.</li>
+<li>De <code>Game</code> klasse bevat de spellogica en state.</li>
+<li>De <code>GameRunner</code> lijkt een nieuw spel aan te maken en random te spelen totdat er een winnaar is.</li>
+<li>Er zijn geen tests.</li>
+<li>Documentatie ontbreekt.</li>
+<li>Ik zie veel code duplicatie.</li>
+<li>Code is alles behalve defensief.</li>
+<li>Overal magic strings en nummer.</li>
+</ul>
+
+
+<p>De commit vindt je hier: <a href="https://github.com/pjvds/trivia/commit/a0df78efe77664a8c87a7a6b1cc3d979c92ec280">Makes solution buildable and runnable.</a></p>
+
+<h2>Iteratie 2</h2>
+
+<p>Het doel van deze iteratie is het onthullen van de intentie van de code. Refactoring is verboden. We gaan zaken alleen een betere naam geven. Ik werk de code van boven tot beneden door waarbij ik opzoek ga naar magic numbers en strings. Daarna zijn de methode namen aan de beurt. Ik geef alle methodes de volledige naam die ze verdienen. Een paar voorbeelden:</p>
+
+<ul>
+<li>Magic string door categories <code>"Pop"</code>, <code>"Science"</code>, <code>"Sport"</code> en <code>"Rock"</code> worden <code>POP_CATEGORY</code>, <code>SCIENCE_CATEGORY</code>, <code>SPORT_CATEGORY</code> en <code>ROCK_CATEGORY</code>.</li>
+<li>Variable <code>players</code> wordt <code>playerNames</code>.</li>
+<li>Variable <code>purges</code> wordt <code>playerCoins</code>.</li>
+<li>Variable <code>places</code> wordt <code>playerCurrentPlaces</code>.</li>
+<li>Methode <code>wasCorrectlyAnswered</code> wordt <code>MarkCurrentAnswerAsCorrectAndMoveToNextPlayer</code>.</li>
+<li>Methode <code>askQuestion</code> wordt <code>printCurrentQuestionAndRemoveIt</code></li>
+</ul>
+
+
+<p>De commit vindt je hier: <a href="https://github.com/pjvds/trivia/commit/c9a4fdabcb9e656276310193c28478a5aa97dc82">Removes a bunch of magic numbers/string and renamed methods to reveal intention</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why should shouldn't]]></title>
+    <link href="http://pjvds.github.com/blog/2012/07/13/why-should-shouldnt/"/>
+    <updated>2012-07-13T17:50:00+02:00</updated>
+    <id>http://pjvds.github.com/blog/2012/07/13/why-should-shouldnt</id>
+    <content type="html"><![CDATA[<h1>Why</h1>
+]]></content>
+  </entry>
   
 </feed>

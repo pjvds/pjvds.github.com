@@ -1,11 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://pjvds.github.com/blog/2012/07/13/why-should-shouldnt/</loc>
+        <lastmod>2012-07-13T18:18:25+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://pjvds.github.com/blog/2012/07/14/report-the-legacy-coderetreat/</loc>
+        <lastmod>2012-07-14T11:58:16+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://pjvds.github.com/blog/archives/</loc>
-        <lastmod>2012-07-13T17:33:04+02:00</lastmod>
+        <lastmod>2012-07-14T11:58:16+02:00</lastmod>
     </url>
     <url>
         <loc>http://pjvds.github.com/</loc>
-        <lastmod>2012-07-13T17:33:04+02:00</lastmod>
+        <lastmod>2012-07-14T11:58:16+02:00</lastmod>
     </url>
 </urlset>

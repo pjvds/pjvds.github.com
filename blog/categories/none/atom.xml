@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: none | My Octopress Blog]]></title>
+  <link href="http://pjvds.github.com/blog/categories/none/atom.xml" rel="self"/>
+  <link href="http://pjvds.github.com/"/>
+  <updated>2012-07-14T11:58:56+02:00</updated>
+  <id>http://pjvds.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why should shouldn't]]></title>
+    <link href="http://pjvds.github.com/blog/2012/07/13/why-should-shouldnt/"/>
+    <updated>2012-07-13T17:50:00+02:00</updated>
+    <id>http://pjvds.github.com/blog/2012/07/13/why-should-shouldnt</id>
+    <content type="html"><![CDATA[<h1>Why</h1>
+]]></content>
+  </entry>
+  
+</feed>
