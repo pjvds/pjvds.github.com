@@ -1,9 +1,10 @@
+// -*- coding:utf-8 -*-
 var github = (function(){
   function render(target, repos){
     var i = 0, fragment = '', t = $(target)[0];
 
     for(i = 0; i < repos.length; i++) {
-      fragment += '<li><a href="'+repos[i].url+'">'+repos[i].name+'</a><p>'+repos[i].description+'</p></li>';
+      fragment += '<li><a href="'+repos[i].url+'">'+repos[i].name+'</a> : '+repos[i].description+'</li>';
     }
     t.innerHTML = fragment;
   }
@@ -12,7 +13,7 @@ var github = (function(){
       $.ajax({
           url: "http://github.com/api/v2/json/repos/show/"+options.user+"?callback=?"
         , type: 'jsonp'
-        , error: function (err) { $(options.target + ' li.loading').addClass('error').text("Error loading feed"); }
+        , error: function (err) { $(options.target + ' li.loading').addClass('error').text("読み込み失敗"); }
         , success: function(data) {
           var repos = [];
           if (!data || !data.repositories) { return; }
