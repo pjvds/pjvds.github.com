@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://pjvds.github.com/atom.xml" rel="self"/>
   <link href="http://pjvds.github.com/"/>
-  <updated>2012-07-14T11:58:56+02:00</updated>
+  <updated>2012-07-14T12:06:35+02:00</updated>
   <id>http://pjvds.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -43,7 +43,12 @@
 </ul>
 
 
-<p>De commit vindt je hier: <a href="https://github.com/pjvds/trivia/commit/a0df78efe77664a8c87a7a6b1cc3d979c92ec280">Makes solution buildable and runnable.</a></p>
+<h3>Commits</h3>
+
+<ul>
+<li><a href="https://github.com/pjvds/trivia/commit/a0df78efe77664a8c87a7a6b1cc3d979c92ec280">Makes solution buildable and runnable.</a></li>
+</ul>
+
 
 <h2>Iteratie 2</h2>
 
@@ -51,6 +56,7 @@
 
 <ul>
 <li>Magic string door categories <code>"Pop"</code>, <code>"Science"</code>, <code>"Sport"</code> en <code>"Rock"</code> worden <code>POP_CATEGORY</code>, <code>SCIENCE_CATEGORY</code>, <code>SPORT_CATEGORY</code> en <code>ROCK_CATEGORY</code>.</li>
+<li>Magic number <code>6</code> wordt &#8220;.</li>
 <li>Variable <code>players</code> wordt <code>playerNames</code>.</li>
 <li>Variable <code>purges</code> wordt <code>playerCoins</code>.</li>
 <li>Variable <code>places</code> wordt <code>playerCurrentPlaces</code>.</li>
@@ -59,7 +65,13 @@
 </ul>
 
 
-<p>De commit vindt je hier: <a href="https://github.com/pjvds/trivia/commit/c9a4fdabcb9e656276310193c28478a5aa97dc82">Removes a bunch of magic numbers/string and renamed methods to reveal intention</a></p>
+<h3>Commits</h3>
+
+<ul>
+<li><a href="https://github.com/pjvds/trivia/commit/c9a4fdabcb9e656276310193c28478a5aa97dc82">Removes a bunch of magic numbers/string and renamed methods to reveal intention</a></li>
+<li><a href="https://github.com/pjvds/trivia/commit/2f0d31e42d10d6f044601a5e846247a2f7e72e75">Improves code by removing magic&#8217;s</a>.</li>
+</ul>
+
 ]]></content>
   </entry>
   

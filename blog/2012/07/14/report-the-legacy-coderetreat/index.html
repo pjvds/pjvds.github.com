@@ -18,16 +18,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://pjvds.github.com/blog/2012/07/14/report-the-legacy-coderetreat/">
+  <link rel="canonical" href="http://pjvds.github.com/blog/2012/07/14/report-the-legacy-coderetreat">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <!-- font-family: 'Knewave', cursive; -->
+<link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+<!-- font-family: 'Cantata One', serif; -->
+<link href='http://fonts.googleapis.com/css?family=Cantata+One' rel='stylesheet' type='text/css'>
 
   
 
@@ -35,10 +36,12 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
-  
-    <h2>A blogging framework for hackers.</h2>
-  
+  <h1>
+      <a href="/">My Octopress Blog</a>
+      
+        <span>A blogging framework for hackers.</span>
+      
+  </h1>
 </hgroup>
 
 </header>
@@ -55,7 +58,7 @@
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
+  <li><a href="/">Home</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
@@ -84,6 +87,7 @@
 
 
 <time datetime="2012-07-14T10:02:00+02:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+        
         
       </p>
     
@@ -115,7 +119,12 @@
 </ul>
 
 
-<p>De commit vindt je hier: <a href="https://github.com/pjvds/trivia/commit/a0df78efe77664a8c87a7a6b1cc3d979c92ec280">Makes solution buildable and runnable.</a></p>
+<h3>Commits</h3>
+
+<ul>
+<li><a href="https://github.com/pjvds/trivia/commit/a0df78efe77664a8c87a7a6b1cc3d979c92ec280">Makes solution buildable and runnable.</a></li>
+</ul>
+
 
 <h2>Iteratie 2</h2>
 
@@ -123,6 +132,7 @@
 
 <ul>
 <li>Magic string door categories <code>"Pop"</code>, <code>"Science"</code>, <code>"Sport"</code> en <code>"Rock"</code> worden <code>POP_CATEGORY</code>, <code>SCIENCE_CATEGORY</code>, <code>SPORT_CATEGORY</code> en <code>ROCK_CATEGORY</code>.</li>
+<li>Magic number <code>6</code> wordt &#8220;.</li>
 <li>Variable <code>players</code> wordt <code>playerNames</code>.</li>
 <li>Variable <code>purges</code> wordt <code>playerCoins</code>.</li>
 <li>Variable <code>places</code> wordt <code>playerCurrentPlaces</code>.</li>
@@ -131,7 +141,13 @@
 </ul>
 
 
-<p>De commit vindt je hier: <a href="https://github.com/pjvds/trivia/commit/c9a4fdabcb9e656276310193c28478a5aa97dc82">Removes a bunch of magic numbers/string and renamed methods to reveal intention</a></p>
+<h3>Commits</h3>
+
+<ul>
+<li><a href="https://github.com/pjvds/trivia/commit/c9a4fdabcb9e656276310193c28478a5aa97dc82">Removes a bunch of magic numbers/string and renamed methods to reveal intention</a></li>
+<li><a href="https://github.com/pjvds/trivia/commit/2f0d31e42d10d6f044601a5e846247a2f7e72e75">Improves code by removing magic&#8217;s</a>.</li>
+</ul>
+
 </div>
 
 
@@ -182,7 +198,7 @@
 
 <aside class="sidebar">
   
-    <section>
+    <section class="first odd">
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -210,7 +226,7 @@
   </div>
   <footer role="contentinfo"><p>
   Copyright &copy; 2012 - Your Name -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/gluttony/object-octopress-theme">Object</a></span>
 </p>
 
 </footer>
