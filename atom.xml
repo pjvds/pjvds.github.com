@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[born2code]]></title>
   <link href="http://pjvds.github.com/atom.xml" rel="self"/>
   <link href="http://pjvds.github.com/"/>
-  <updated>2012-07-14T16:08:04+02:00</updated>
+  <updated>2012-07-17T08:19:26+02:00</updated>
   <id>http://pjvds.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Pieter Joost van de Sande]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -18,30 +18,33 @@
     <link href="http://pjvds.github.com/blog/2012/07/14/report-the-legacy-coderetreat/"/>
     <updated>2012-07-14T10:02:00+02:00</updated>
     <id>http://pjvds.github.com/blog/2012/07/14/report-the-legacy-coderetreat</id>
-    <content type="html"><![CDATA[<p>Iedere software ontwikkelaar heeft er mee te maken. Sommige vinden het leuk, maar vele hebben er een hekel aan. Je kunt het erven van een ander, of tegenkomen van jezelf. Soms is het jaren oud zijn, of vorige week geschreven. Het kan ontwikkeld zijn in Cobol, of in de laatste versie van een moderne taal. Een ding is zeker, er wordt elke dag een hoop van geschreven. Legacy code, een fenomeen dat we maar al te goed kennen. Toch weten we er maar weinig van. Wat is het eigenlijk precies? Hoe kun je er het beste mee omgaan?</p>
+    <content type="html"><![CDATA[<p>Iedere software ontwikkelaar heeft er mee te maken. Sommige vinden het leuk, maar vele hebben er een hekel aan. Je kunt het erven van een ander, of tegenkomen van jezelf. Soms is het jaren oud zijn, of vorige week geschreven. Het kan ontwikkeld zijn in Cobol, maar ook in de laatste versie van je favoriete moderne taal. Een ding is zeker, elke dag komt er meer bij. Legacy code, een fenomeen dat we maar al te goed kennen. Toch weten we er maar weinig van. Wat is het eigenlijk precies en hoe kun je er het beste mee omgaan? Op zaterdag 23 juni kwamen we bij elkaar in het hoofdkantoor van <a href="http://www.finalist.nl/">Finalist</a> om antwoorden te vinden op deze vragen.</p>
 
-<p>Op zaterdag 23 juni kwamen we bij elkaar in het hoofdkantoor van <a href="http://www.finalist.nl/">Finalist</a> om antwoorden te vinden op deze vragen. Onder leiding van <a href="https://twitter.com/talboomerik">Erik Talboom</a> en <a href="https://twitter.com/frederikdelbr">Frederik Delbroek</a> zijn we aan de slag gegaan om <a href="https://github.com/jbrains/trivia">Trivia</a> aan te gaan pakken. Een variant van Triviant dat duidelijk de stempel legacy code verdient. Het plan was om in vier iteraties in pairs de code te leren begrijpen en te verbeteren.</p>
+<p>Onder leiding van <a href="https://twitter.com/talboomerik">Erik Talboom</a> en <a href="https://twitter.com/frederikdelbr">Frederik Delbroek</a> zijn we aan de slag gegaan. Het doel was om <a href="https://github.com/jbrains/trivia">Trivia</a> aan te gaan pakken. Een variant van Triviant dat duidelijk de stempel legacy code verdient. Geen tests, documentatie ontbreekt, de kwaliteit lijkt ver te zoeken en functioneel schort er ook nog het een en ander aan.</p>
 
-<p>Ik koos voor de C# variant op Mono met MonoDevelop als IDE. Andere kozen voor Java, PHP, Javascript, Ruby en Scala.</p>
+<p>Het eerste wat in mij op kwam was als een gek door de code te stormen en alle troep die ik tegen kwam op te ruimen. Maar Erik en Frederik hadden een ander plan. Ze wouden ons leren dat er een betere manier is om met legacy code om te gaan. Dat je het niet moet behandelen met brute kracht, maar met een fluwelen handschoen. Hun plan was om in vier iteraties met ieder een duidelijk doel te gebruiken om in gecontroleerde stappen naar verbetering toe te werken.</p>
 
-<h2>Iteratie 1</h2>
+<p>Ik koos voor de C# variant op Mono met MonoDevelop als IDE, een keuze waar ik later spijt van zal krijgen. Andere kozen voor Java, PHP, Javascript, Ruby en Scala.</p>
 
-<p>Het doel van deze iteratie was het verkennen van de solution en code. We krijgen als opdracht mee om alleen te gaan verkennen. We mogen geen wijzigingen aanbrengen, anders dan het uitvoerbaar krijgen van de code.</p>
+<h2>Iteratie 1: Uitvoerbaar krijgen</h2>
 
-<p>Na een fork en clone van de git repository en het openen van de solution viel gelijk op dat de code niet bouwt door het missen van een startup object. Ik verwijder de lege <code>Program</code> klasse deze en stel de <code>GameRunner</code> klasse in als startup object in. De solution bouwt en is zelfs executabel. Ik gebruik de overige tijd om een indruk te krijgen van de code. Het volgende valt mij op:</p>
+<p>Het doel van deze eerste iteratie was het verkennen van de solution en code. We mogen geen wijzigingen aanbrengen anders dan die nodig zijn om de code uitvoerbaar te krijgen.</p>
+
+<p>Na een <a href="https://github.com/pjvds/trivia/">fork</a> gemaakt te hebben clone ik de git repository en het open de solution. Ik zie drie klasse: <code>Program</code>, <code>GameRunner</code> en <code>Game</code>. Zodra ik de solution probeer te bouwen krijg ik een error. Er ontbreekt een startup object. Ik verwijder de lege <code>Program</code> klasse deze en stel de <code>GameRunner</code> klasse in als startup object in. De solution bouwt en is zelfs uitvoerbaar. Ik gebruik de overige tijd om een indruk te krijgen van de code. Het volgende valt mij op:</p>
 
 <ul>
-<li>Code werkt op Mono.</li>
-<li>Na korte fix is de code uitvoerbaar.</li>
+<li><code>GameRunner</code> kan dienen als startup object.</li>
 <li>De <code>Game</code> klasse bevat de spellogica en state.</li>
 <li>De <code>GameRunner</code> lijkt een nieuw spel aan te maken en random te spelen totdat er een winnaar is.</li>
 <li>Er zijn geen tests.</li>
 <li>Documentatie ontbreekt.</li>
 <li>Ik zie veel code duplicatie.</li>
 <li>Code is alles behalve defensief.</li>
-<li>Overal magic strings en nummer.</li>
+<li>Overal waar ik kijk zie ik magic strings en nummer.</li>
 </ul>
 
+
+<p>Aan het einde van deze iteratie ben ik blij dat ik deze code heb kunnen uitvoeren. Ondanks het ontbreken van tests en documentatie lijkt de code het wel te doen. Wat ik erg moeilijk vond was het niet direct doorvoeren van wijzigingen. Maar door mijn tijd echt te gebruiken om een indruk te krijgen van het totaal beeld heb ik nu een beter overzicht dan als ik gelijk zou beginnen met het aanbrengen van wijzigingen.</p>
 
 <h3>Commits</h3>
 
@@ -50,7 +53,7 @@
 </ul>
 
 
-<h2>Iteratie 2</h2>
+<h2>Iteratie 2: Onthullen van intentie</h2>
 
 <p>Het doel van deze iteratie is het onthullen van de intentie van de code. Refactoring is verboden. We gaan zaken alleen een betere naam geven. Ik werk de code van boven tot beneden door waarbij ik opzoek ga naar magic numbers en strings. Daarna zijn de methode namen aan de beurt. Ik geef alle methodes de volledige naam die ze verdienen. Een paar voorbeelden:</p>
 
@@ -73,7 +76,7 @@
 </ul>
 
 
-<h2>Iteratie 3</h2>
+<h2>Iteratie 3: Een veiligheidsnet</h2>
 
 <p>Het doel van deze iteratie is het toevoegen van tests. We gaan een vangnet creëren. Deze hebben we later hard nodig als we gaan refactoren.</p>
 
@@ -101,6 +104,20 @@
 
 <ul>
 <li><a href="https://github.com/pjvds/trivia/commit/d95733b0d95fac480e6fe75f664da7ea0ea4350b">Adds tests that cover most game scenario&#8217;s</a></li>
+</ul>
+
+
+<h2>Iteratie 4: Fix &amp; refactor</h2>
+
+<p>In de vorige iteraties is er gewerkt aan het begrijpen van de code en het domein, het verbeteren van de kwaliteit in naamgeving en het creëren van geautomatiseerde testen. Alle wijzigingen die gemaakt zijn aan de code zijn renames geweest. Er is geen code verplaatst of aangepast. Het doel van deze iteratie is om de code aan te gaan passen in de vorm van refactoring en bug fixes. Het begrip als resultaat van iteratie een en twee, en de tests van iteratie drie vormen hiervoor de basis.</p>
+
+<h3>Commits</h3>
+
+<ul>
+<li><a href="https://github.com/pjvds/trivia/commit/e38d850adf1db03f40a5f3c0acb19ddbf4d51af1">Fixes bug that player is not removed from penalty box</a></li>
+<li><a href="https://github.com/pjvds/trivia/commit/e9a5bde01b3e856a4e9d363819f2e3850410ec1b">Adds IsCurrentPlayerInPenaltyBox method. Method is used in guard clauses</a></li>
+<li><a href="https://github.com/pjvds/trivia/commit/36af6dfcaf031583f9ee4fb08f5fa151777a188e">Refactores guard clauses and hiddes some implementation details</a></li>
+<li><a href="https://github.com/pjvds/trivia/commit/eeff46347511242ddaf280c085cd9409ede15739">Fixes all tests</a></li>
 </ul>
 
 
